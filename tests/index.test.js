@@ -1,4 +1,5 @@
 const { test, expect, describe, it } = require("@jest/globals");
+const { array } = require("yargs");
 const Add = require("..");
 
 
@@ -14,7 +15,7 @@ describe('Add Task 1', ()=>{
     })
 })
 
-describe('Add task 2 - unknown amount of numbers', ()=>{
+describe('Add Task 2 - unknown amount of numbers', ()=>{
     it('should handle unknown amount of numbers',()=>{
         expect(Add("1,5,4,3,8,10,500,650")).toBe(1181);
         expect(Add("2,5,6,4,8,1,2")).toBe(28);
@@ -24,5 +25,17 @@ describe('Add task 2 - unknown amount of numbers', ()=>{
         }
         expect(Add(input))
         .toBe(5050)
+    })
+})
+
+describe('Add Task 3 - handle new lines between numbers instead of commas', ()=>{
+    it('should handle inputs with newlines instead of commas', ()=>{
+        expect(Add('1\n2,3')).toBe(6)
+        let input = "1"
+        // generate inputs seperated by '\n' or ','
+        for(let i=2; i<=100; i++){
+            input = input + ['\n',','][Math.floor(Math.random()*2)]  + i;
+        }
+        expect(Add(input)).toBe(5050)
     })
 })

@@ -5,9 +5,9 @@ function Add(str) {
         return +str
     }
 
-
-    const numberArray = str.split(',');
     
+    const numberArray = str.split('\n').join(',').split(',');
+
     // solution using reduce method
     // return numberArray.reduce((prevVal, currentVal) => (+prevVal) + (+currentVal), 0)
 
