@@ -1,0 +1,25 @@
+{
+  "name": "incubytetasktdd",
+  "version": "1.0.0",
+  "description": "\"# incubyteTaskTDD\"",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abinandh15/incubyteTaskTDD.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abinandh15/incubyteTaskTDD/issues"
+  },
+  "homepage": "https://github.com/abinandh15/incubyteTaskTDD#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
