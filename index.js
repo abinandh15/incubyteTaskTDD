@@ -27,7 +27,10 @@ function Add(str) {
                 negativeNumbers = negativeNumbers + ',' + number
             }
         }
-        sum += +number;
+        // numbers greater than 1000 should be ignored
+        if(+number <= 1000){
+            sum += +number;
+        }
     })
 
     if (negativeNumbers.length == 0) {

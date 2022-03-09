@@ -1,5 +1,4 @@
-const { test, expect, describe, it } = require("@jest/globals");
-const { array } = require("yargs");
+const { expect, describe, it } = require("@jest/globals");
 const Add = require("..");
 
 
@@ -51,5 +50,12 @@ describe('Add Task 5 - handle negative numbers', ()=>{
     it('should throw an exception ("negative not allowed") for negative numbers',()=>{
         expect(()=>Add('1,-2,-5')).toThrow("negatives not allowed - [-2,-5]")
         expect(()=>Add('1,2,-5')).toThrow("negatives not allowed - [-5]")
+    })
+})
+
+describe('Add Task 6 - numbers bigger thatn 1000 should be ignored',()=>{
+    it('should omit numbers greater than 1000 while calculating sum', ()=>{
+        expect(Add('2,1001')).toBe(2);
+        expect(Add('//k\n1k5000k56')).toBe(57);
     })
 })
