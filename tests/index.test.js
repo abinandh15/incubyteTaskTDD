@@ -39,9 +39,17 @@ describe('Add Task 3 - handle new lines between numbers instead of commas', ()=>
         expect(Add(input)).toBe(5050)
     })
 })
+
 describe('Add Task 4 - handle different delimiters', ()=>{
     it('should handle inputs with different delimiters', ()=>{
         expect(Add('//;\n1;2')).toBe(3)
         expect(Add('//k\n1k2k56')).toBe(59)
+    })
+})
+
+describe('Add Task 5 - handle negative numbers', ()=>{
+    it('should throw an exception ("negative not allowed") for negative numbers',()=>{
+        expect(()=>Add('1,-2,-5')).toThrow("negatives not allowed - [-2,-5]")
+        expect(()=>Add('1,2,-5')).toThrow("negatives not allowed - [-5]")
     })
 })

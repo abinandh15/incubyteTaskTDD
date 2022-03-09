@@ -9,7 +9,7 @@ function Add(str) {
         delimiter = str.substring(2, str.indexOf("\n"));
     }
 
-    // (str.substr(str.indexOf("\n") + 1).split(delimiter)) -> remove only the input part of string (after '\n') and split with given delimiter(if provided)
+    // (str.substr(str.indexOf("\n") + 1).split(delimiter)) -> extract only the input part of string (after '\n') and split with given delimiter(if provided)
     const numberArray = (delimiter !== null) ? (str.substr(str.indexOf("\n") + 1).split(delimiter)) : str.split('\n').join(',').split(',');
 
 
@@ -18,10 +18,23 @@ function Add(str) {
     // return numberArray.reduce((prevVal, currentVal) => (+prevVal) + (+currentVal), 0)
 
     let sum = 0;
+    let negativeNumbers = '';
     numberArray.forEach(number => {
+        if (+number < 0) {
+            if (negativeNumbers.length === 0) {
+                negativeNumbers = number
+            } else {
+                negativeNumbers = negativeNumbers + ',' + number
+            }
+        }
         sum += +number;
     })
-    return sum;
+
+    if (negativeNumbers.length == 0) {
+        return sum;
+    } else {
+        throw `negatives not allowed - [${negativeNumbers}]`
+    }
 }
 
 module.exports = Add;
